@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<!--
+	Twenty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Twenty by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="index is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header" class="alt">
+					<h1 id="logo"><a href="index.html">IRE Major project <span> by Team #18</span></a></h1>
+				</header>
+
+			<!-- Banner -->
+				<section id="banner">
+
+					<!--
+						".inner" is set up as an inline-block so it automatically expands
+						in both directions to fit whatever's inside it. This means it won't
+						automatically wrap lines, so be sure to use line breaks where
+						appropriate (<br />).
+					-->
+					<div class="inner">
+
+						<header>
+							<h2>SEM EVAL</h2>
+						</header>
+						<p>Given a textual user utterance along with 2 turns of context in a conversation, classify the emotion of user utterance as Happy, Sad, Angry or Others.
+						</p>
+						<footer>
+							<ul class="buttons stacked">
+								<li><a href="https://www.humanizing-ai.com/emocontext.html" class="button fit scrolly">Link to Emocontext</a></li>
+							</ul>
+						</footer>
+
+					</div>
+
+				</section>
+
+			<!-- Main -->
+				<article id="main">
+
+					<header class="special container">
+						<span class="icon fa-bar-chart-o"></span>
+						<h2> <strong>ABSTRACT</strong> <br /></h2>
+						<p>
+						Most of the tasks in natural language processing involve looking at individual words and try to extract information from different factors, namely their distribution in the documents,syntactic contexts,their frequency weighting but always ignore the sentiment of the continuous form of these words. Here we want to come up with a method that learns both the semantic and the sentimental information in a conversation and use it for a better emotion detection of a three-way conversation. 
+						</p>
+					</header>
+
+					<!-- One -->
+						<section class="wrapper style2 container special-alt">
+
+									<header>
+										<h2><strong>Background</strong></h2>
+									</header>
+									<p>The task, as introduced by Microsoft Research India is an extension of the paper “A Sentiment and Semantics Based Approach for Emotion Detection in Textual Conversations”, Gupta et. al. (2018). The paper describes an LSTM based architecture to solving the aforementioned task, and involves the usage of both semantic word vectors (in the form of GloVe embeddings) and sentiment word vectors. This approach shows good results with an average F1 score of 71.34, beating a number of previously set standards.</p>
+									<footer>
+										<ul class="buttons">
+											<li><a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&ved=2ahUKEwizmK3_m8_eAhUKY48KHdsHDFkQFjABegQIAxAC&url=https%3A%2F%2Farxiv.org%2Fpdf%2F1707.06996&usg=AOvVaw2iUavev08J5r2vF17ByzAA" class="button"> Dowload paper </a></li>
+										</ul>
+									</footer>
+						</section>
+
+						<header class="special container">
+						<span class="icon fa-bar-chart-o"></span>
+						<h2> <strong>THEORY</strong> <br /></h2>
+						</header>
+
+
+					<!-- Two -->
+						<section class="wrapper style1 container special">
+							<div class="row">
+								<div class="col-6 col-12-narrower">
+
+									<section>
+										<header>
+											<h3>Long Short Term Memory Networks (LSTM)</h3>
+										</header>
+										<p>LSTMs are a special kind of recurrent neural network (RNN) capable of learning long-term dependencies. They are explicitly designed to avoid the long-term dependency problem and the vanishing gradient. Given the highly contextual nature of our data wherein we get three turns of conversation, LSTMs were expected to perform better than other Deep Learning architecture involving SVMs , CNNs and the likes.</p>
+									</section>
+
+								</div>
+								<div class="col-6 col-12-narrower">
+
+									<section>
+										<header>
+											<h3>Global Vectors for Word Representation</h3>
+										</header>
+										<p>Distributional semantics refers to the theory that the meaning of words in languages can be derived from their distribution in language use, i.e. the occurrence of words with respect to their shared contexts. 
+
+GloVe is an unsupervised learning algorithm for obtaining vector representations for words based on their distribution. Pre-trained GloVe representations have been used throughout our project, as obtained from here.</p>
+									</section>
+
+								</div>
+							</div>
+						</section>
+
+					<!-- Three -->
+						<section class="wrapper style3 container special">
+
+							<header class="major">
+								<h2><strong>Approaches</strong></h2>
+							</header>
+
+							<div class="row">
+								<div class="col-6 col-12-narrower">
+
+									<section>
+										<header>
+											<h3><strong>Model 1 : F1=56.73% </strong></h3>
+										</header>
+										<a href="#" class="image featured"><img src="images/ire1.png" alt="" /></a>
+										<p>
+											A simple LSTM followed by a dense layer, which utilizes a sigmoid activation function to give class-wise probabilities. The LSTM helps to retain some contextual information as explained earlier. We treat this is as our baseline.
+										</p>
+									</section>
+
+								</div>
+								<div class="col-6 col-12-narrower">
+
+									<section>
+										<header>
+											<h3><strong>Model 2 : F1 = 55.xx% </strong></h3>
+										</header>
+										<a href="#" class="image featured"><img src="images/ire2.png" alt="" /></a>
+										<p>
+											LSTMs, due to their recurrent behavior take time to train. Thus, we decided to experiment with CNNs. The second model comprises of a CNN having 6 filters, a max-pool, and then an LSTM followed by a dense layer and finally a four class softmax probability distribution layer. Although, we were expecting an increase in the F1 scores, the scores dipped a little bit, giving 55% as the results. The reason could have been that, the feature space was cut down too much in max-pooling that it even excluded some of the important contextual features which might have been useful for the LSTM.
+										</p>
+									</section>
+
+								</div>
+							</div>
+
+									<section>
+										<header>
+											<h3><strong>Model 3 : F1 = 58.XX% </strong></h3>
+										</header>
+										<a href="#" class="image featured"><img src="images/ire3.png" alt="" /></a>
+										<p>We followed with this architecture inspired by Siamese networks. Two LSTMs are applied in parallel, each fed with GLoVe vectors as inputs through the embedding layer. Now unlike Siamese, here, the outputs from the two parallel LSTMs are concatenated together and fed to a dense layer which is then followed by a four class softmax probability distribution layer.
+This architecture will serve as a groundwork for the architecture of LSTMs as would be discussed further. In those models, we would be feeding different types of word embeddings so that both semantic and sentimental aspects of the text can be covered and passed on LSTM to work upon. However, for now, just for a trail run and see how much this model alone can improve the accuracy, we ran this model on test dataset and found it to be giving good increase than the one that used a CNN before an LSTM, Model 2.
+</p> </br></br>
+									</section>
+
+
+						<div class="row">
+		
+							<div class="col-6 col-12-narrower">
+
+									<section>
+										<header>
+											<h3><strong>Model 4 : F1 = 59.42%</strong></h3>
+										</header>
+										
+										<p>
+											Instead of trying to change the model we decided to try some feature engineering and make the model semi-supervised. First every word was represented by its GloVe vector. Then, a feature vector of nine binary (i.e. true/false type) features was generated for every word. These features have been listed below:
+											</br>
+											1. Is the word a hedge?</br>
+											2. Is the word a factive verb?</br>
+											3. Is the word an assertive verb?</br>
+											4. Is the word an implicative verb?</br>
+											5. Is the word a report verb?</br>
+											6. Is the word an entailment causing verb?</br>
+											7. Is the word a subjective verb?</br>
+											8. If yes, is it weakly subjective or strongly subjective?</br>
+											9. Is the polarity of the word positive or negative?
+										</p>
+									</section>
+								</div>
+
+								<div class="col-6 col-12-narrower">
+
+										<p>
+											</br></br></br>
+
+											The reasoning employed behind the use of these features is that sentiment is highly subjective and these features all give insights into displays of subjectivity in language use (these features have seen usage for identification of bias in text as well). 
+											Once the feature vector has been generated, it is concatenated to the regular GloVe vector. We believe our reasoning is justified as when the 100 dimensional GloVe embeddings in model 1 were replaced with these feature augmented embeddings, the F1 score immediately rose from ~56% to ~58%.
+											A further replacement of the 100 dimensional embeddings with 300 dimensional GloVe embeddings, in the same model, further improved our score to >59%.
+										</p> 
+									</div>
+								</div>
+
+
+
+						<div class="row">
+		
+							<div class="col-6 col-12-narrower">
+
+									<section>
+										<header>
+											<h3><strong>Model 5 : F1 = 59.42%</strong></h3>
+										</header>
+										<p>
+											At the end of model 4, we redirected our efforts to increasing our model’s focus on context. For this, we decided to replace the simple LSTM in model 4 with a Bidirectional LSTM (BiLSTM). The idea is that an LSTM only looks at past events as context, however just like language contains anaphoric references, it also contains cataphoric references, and so our model should, in some capacity, also focus on future events. Since the BiLSTM looks at inputs in both directions, it seemed like a good choice; unfortunately though the model failed catastrophically, giving extremely low results. While we haven’t completely ascertained what went wrong, we believe part of the problem is that the model is overfitting.
+										</p>
+									</section>
+								</div>
+
+								<div class="col-6 col-12-narrower">
+										<p>
+											</br></br></br>
+												The above failure also led to us trying a second idea; we now stack a second LSTM layer on the pre-existing layer as in model 4. The reasoning behind this is that we felt that our model did not have enough depth and complexity to actually make inferences from the temporality of the data it was being given. To avoid overfitting, we raised the dropout from the previous 20% to 30%. Rest everything remains the same; words are encoded as combinations of GloVe and the features (as detailed in model 4), and after passing through two hidden LSTM layers, they go through a dense layer with a sigmoid activation function, extrapolating our model’s analysis into a probability distribution over the classes.
+										</p>
+									</div>
+								</div>
+
+								
+
+									<section>
+										<header>
+											<h3><strong>Model 6 : F1 = 59.42% </strong>(current best approach)</h3>
+										</header>
+										<a href="#" class="image featured"><img src="images/ire6.png" alt="" /></a>
+										<p>
+											Up until model 5, we were using 300 dimensional GloVe embeddings for our model which was aimed at making our model predict the emotions based on the semantics. We wanted to exploit the advantages of semantics and sentiment of the conversation and hence introduced a Sentiment Specific Word Embedding (SSWE). SSWE  aims at encoding sentiment information in the continuous representation of words. Pretrained SSWE were obtained from previous research done in this field.
+										</br>
+											The architecture of our proposed SS-LSTM model is shown in figure. The input user utterances is now fed into two parallel hidden LSTM layers , one being the Semantic LSTM layer and the other being the Sentiment LSTM layer. These two layers learn semantic and sentiment feature representation and encode sequential patterns in the user utterance. These two representations are then concatenated and fed into another LSTM layer followed by a dense layer to model the interactions between semantic and the sentiment data to get the output probabilities for each of the four classes. GloVe is used our embedding for the Semantic LSTM layer and SSWE as our embedding for the Sentiment LSTM layer.
+
+										</br> This has been the best approach so far, and gives us our current best score of >64%.
+
+										</p>
+									</section>
+
+						</section>
+
+				</article>
+
+			<!-- CTA -->
+				<section id="cta">
+
+					<header>
+						<h2><strong>Conclsion</strong></h2>
+						<p>
+							Based on the current models, the best ways of improving performance seem to be directly correlated to three things - the amount of importance given to the context, semi-supervization via external feature generation, and hyperparameter adjustments. At the moment we have a number of other ideas that seem worthy of trial; future approaches will also involve more complex architectures including hierarchical models, and manipulation of training data.
+
+							Results of our models are up on the CodaLab results page here, assigned to the following usernames: the0ne (Aditya), KB09 (Ayush) and WinterRR (Hemanth).</p>
+					</header>
+					
+				</section>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<h2><strong> Team #18 </strong></h2>
+						
+						<p>
+						Aditya Srivastava </br>
+						Anshul Sharma </br>
+						Ayush Rai </br>
+					    Hemanth Vemuri </br>
+						</p>
+						
+						
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
